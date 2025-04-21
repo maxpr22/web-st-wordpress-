@@ -10,7 +10,13 @@
     <header class="header">
       <div class="container header__container">
         <nav class="header__nav">
+        <?php if (has_custom_logo()) : ?>
+        <div class="logo">  
+          <?php the_custom_logo(); ?>
+        </div>
+        <?php else : ?>
           <a class="logo" href="<?php echo get_permalink( get_page_by_path('studio') ); ?>"><span class="logo__accent">Web</span>Studio</a>
+        <?php endif; ?>
           <button
             class="menu-button js-open-menu"
             aria-expanded="false"

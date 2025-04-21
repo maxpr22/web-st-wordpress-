@@ -14,3 +14,14 @@ function mytheme_enqueue_assets() {
         'https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js'
     );
 }
+
+
+function mytheme_setup() {
+    add_theme_support('custom-logo', array(
+        'height'      => 100,
+        'width'       => 300,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ));
+}
+add_action('after_setup_theme', 'mytheme_setup');

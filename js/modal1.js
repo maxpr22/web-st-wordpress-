@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (window.location.pathname === '/studio/') {
+  if (window.location.pathname === '/') {
     (() => {
       const refs = {
         openModalBtn: document.querySelector("[data-modal-open]"),

@@ -42,11 +42,11 @@
       $phone = get_theme_mod('contact_phone');
 
       if (empty($email)) {
-        $email = 'info@devstudio.com'; 
+        $email = 'info@devstudio.com';
       }
 
       if (empty($phone)) {
-        $phone = '+380961111111'; 
+        $phone = '+380961111111';
       }
 
       $tel_href = 'tel:' . preg_replace('/\D+/', '', $phone);

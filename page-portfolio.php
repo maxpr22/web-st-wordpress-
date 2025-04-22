@@ -32,7 +32,7 @@ get_header(); ?>
           <a class="mobile-contact__phone" href="tel:<?php
           $phone = get_theme_mod('contact_phone');
           if (empty($phone)) {
-            $phone = '+380961111111'; 
+            $phone = '+380961111111';
           }
           echo esc_attr($phone);
           ?>">
@@ -45,7 +45,7 @@ get_header(); ?>
           <a class="mobile-contact__mail" href="mailto:<?php
           $email = get_theme_mod('contact_email');
           if (empty($email)) {
-            $email = 'info@devstudio.com'; 
+            $email = 'info@devstudio.com';
           }
           echo esc_attr($email);
           ?>">

@@ -2,20 +2,33 @@
   <div class="container footer__container">
     <div class="footer-address">
       <a href="./index.html" class="logo--inverse"><span class="logo__accent">Web</span>Studio</a>
-      <address>
-        <ul class="location">
-          <li class="location__item">
-            <a href="https://goo.gl/maps/CPtrU1FHBa2aNyZL9" class="location__map" target="_blank"
-              rel="noopener noreferrer nofollow">м. Київ, пр-т Лесі Українки, 26</a>
-          </li>
-          <li class="location__item">
-            <a href="mailto:info@devstudio.com" class="location__mail">info@devstudio.com</a>
-          </li>
-          <li class="location__item">
-            <a href="tel:+380961111111" class="location__phone">+38 096 111 11 11</a>
-          </li>
-        </ul>
-      </address>
+      <?php
+$address = get_theme_mod('contact_address', 'м. Київ, пр-т Лесі Українки, 26');
+$email = get_theme_mod('contact_email', 'info@devstudio.com');
+$phone = get_theme_mod('contact_phone', '+380961111111');
+$map_link = get_theme_mod('contact_map_link', 'https://goo.gl/maps/CPtrU1FHBa2aNyZL9');
+?>
+
+<address>
+  <ul class="location">
+    <li class="location__item">
+      <a href="<?php echo esc_url($map_link); ?>" class="location__map" target="_blank" rel="noopener noreferrer nofollow">
+        <?php echo esc_html($address); ?>
+      </a>
+    </li>
+    <li class="location__item">
+      <a href="mailto:<?php echo esc_attr($email); ?>" class="location__mail">
+        <?php echo esc_html($email); ?>
+      </a>
+    </li>
+    <li class="location__item">
+      <a href="tel:<?php echo esc_attr($phone); ?>" class="location__phone">
+        <?php echo esc_html($phone); ?>
+      </a>
+    </li>
+  </ul>
+</address>
+
     </div>
     <div class="footer-social">
       <p class="footer-social__text">Приєднуйтесь</p>

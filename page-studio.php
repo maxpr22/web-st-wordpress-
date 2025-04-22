@@ -31,7 +31,7 @@ get_header(); ?>
           <a class="mobile-contact__phone" href="tel:<?php
           $phone = get_theme_mod('contact_phone');
           if (empty($phone)) {
-            $phone = '+380961111111'; 
+            $phone = '+380961111111';
           }
           echo esc_attr($phone);
           ?>">
@@ -44,7 +44,7 @@ get_header(); ?>
           <a class="mobile-contact__mail" href="mailto:<?php
           $email = get_theme_mod('contact_email');
           if (empty($email)) {
-            $email = 'info@devstudio.com'; 
+            $email = 'info@devstudio.com';
           }
           echo esc_attr($email);
           ?>">
@@ -67,81 +67,153 @@ get_header(); ?>
   <!-- hero -->
   <section class="hero">
     <div class="container hero__container">
-    <?php
-  $hero_title = get_theme_mod('hero_title_text');
-?>
-
-<h1 class="hero__title">
-  <?php
-    if (!empty($hero_title)) {
-      echo esc_html($hero_title);
-    } else {
-      echo 'Ефективні рішення для вашого бізнесу'; 
-    }
-  ?>
-</h1>
       <?php
-  $hero_btn_text = get_theme_mod('hero_button_text');
-?>
+      $hero_title = get_theme_mod('hero_title_text');
+      ?>
 
-<button data-modal-open type="button" class="hero__button">
-  <?php
-    if (!empty($hero_btn_text)) {
-      echo esc_html($hero_btn_text);
-    } else {
-      echo 'Замовити послугу'; 
-    }
-  ?>
-</button>
+      <h1 class="hero__title">
+        <?php
+        if (!empty($hero_title)) {
+          echo esc_html($hero_title);
+        } else {
+          echo 'Ефективні рішення для вашого бізнесу';
+        }
+        ?>
+      </h1>
+      <?php
+      $hero_btn_text = get_theme_mod('hero_button_text');
+      ?>
+
+      <button data-modal-open type="button" class="hero__button">
+        <?php
+        if (!empty($hero_btn_text)) {
+          echo esc_html($hero_btn_text);
+        } else {
+          echo 'Замовити послугу';
+        }
+        ?>
+      </button>
     </div>
   </section>
   <!-- benefits -->
   <section class="section benefits">
     <div class="container">
-      <h2 class="benefits__title visually-hidden">Наші переваги</h2>
+      <h2 class="benefits__title visually-hidden">
+        <?php
+        if (get_theme_mod('benefits_section_title')) {
+          echo esc_html(get_theme_mod('benefits_section_title'));
+        } else {
+          echo 'Наші переваги';
+        }
+        ?>
+      </h2>
       <ul class="benefits-list">
         <li class="benefits-list__item">
           <div class="benefits-list__picture">
             <svg width="70" height="70">
-              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-antenna"></use>
+              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#<?php
+                 echo get_theme_mod('benefits_icon_1') ? esc_attr(get_theme_mod('benefits_icon_1')) : 'icon-antenna';
+                 ?>"></use>
             </svg>
           </div>
-          <h3 class="benefits-list__title">УВАГА ДО ДЕТАЛЕЙ</h3>
+          <h3 class="benefits-list__title">
+            <?php
+            if (get_theme_mod('benefits_title_1')) {
+              echo esc_html(get_theme_mod('benefits_title_1'));
+            } else {
+              echo 'УВАГА ДО ДЕТАЛЕЙ';
+            }
+            ?>
+          </h3>
           <p class="benefits-list__text">
-            Ідейні міркування, і навіть початок повсякденної роботи з формування позиції.
+            <?php
+            if (get_theme_mod('benefits_text_1')) {
+              echo esc_html(get_theme_mod('benefits_text_1'));
+            } else {
+              echo 'Ідейні міркування, і навіть початок повсякденної роботи з формування позиції.';
+            }
+            ?>
           </p>
         </li>
         <li class="benefits-list__item">
           <div class="benefits-list__picture">
             <svg width="70" height="70">
-              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-clock"></use>
+              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#<?php
+                 echo get_theme_mod('benefits_icon_2') ? esc_attr(get_theme_mod('benefits_icon_2')) : 'icon-clock';
+                 ?>"></use>
             </svg>
           </div>
-          <h3 class="benefits-list__title">ПУНКТУАЛЬНІСТЬ</h3>
+          <h3 class="benefits-list__title">
+            <?php
+            if (get_theme_mod('benefits_title_2')) {
+              echo esc_html(get_theme_mod('benefits_title_2'));
+            } else {
+              echo 'ПУНКТУАЛЬНІСТЬ';
+            }
+            ?>
+          </h3>
           <p class="benefits-list__text">
-            Завдання організації, особливо рамки і місце навчання кадрів тягне у себе.
+            <?php
+            if (get_theme_mod('benefits_text_2')) {
+              echo esc_html(get_theme_mod('benefits_text_2'));
+            } else {
+              echo 'Завдання організації, особливо рамки і місце навчання кадрів тягне у себе.';
+            }
+            ?>
           </p>
         </li>
         <li class="benefits-list__item">
           <div class="benefits-list__picture">
             <svg width="70" height="70">
-              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-diagram"></use>
+              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#<?php
+                 echo get_theme_mod('benefits_icon_3') ? esc_attr(get_theme_mod('benefits_icon_3')) : 'icon-diagram';
+                 ?>"></use>
             </svg>
           </div>
-          <h3 class="benefits-list__title">ПЛАНУВАННЯ</h3>
+          <h3 class="benefits-list__title">
+            <?php
+            if (get_theme_mod('benefits_title_3')) {
+              echo esc_html(get_theme_mod('benefits_title_3'));
+            } else {
+              echo 'ПЛАНУВАННЯ';
+            }
+            ?>
+          </h3>
           <p class="benefits-list__text">
-            Так само консультація з широким активом значною мірою зумовлює.
+            <?php
+            if (get_theme_mod('benefits_text_3')) {
+              echo esc_html(get_theme_mod('benefits_text_3'));
+            } else {
+              echo 'Так само консультація з широким активом значною мірою зумовлює.';
+            }
+            ?>
           </p>
         </li>
         <li class="benefits-list__item">
           <div class="benefits-list__picture">
             <svg width="70" height="70">
-              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-astronaut"></use>
+              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#<?php
+                 echo get_theme_mod('benefits_icon_4') ? esc_attr(get_theme_mod('benefits_icon_4')) : 'icon-astronaut';
+                 ?>"></use>
             </svg>
           </div>
-          <h3 class="benefits-list__title">СУЧАСНІ ТЕХНОЛОГІЇ</h3>
+          <h3 class="benefits-list__title">
+            <?php
+            if (get_theme_mod('benefits_title_4')) {
+              echo esc_html(get_theme_mod('benefits_title_4'));
+            } else {
+              echo 'СУЧАСНІ ТЕХНОЛОГІЇ';
+            }
+            ?>
+          </h3>
           <p class="benefits-list__text">
-            Значимість цих проблем настільки очевидна, що реалізація планових завдань.
+            <?php
+            if (get_theme_mod('benefits_text_4')) {
+              echo esc_html(get_theme_mod('benefits_text_4'));
+            } else {
+              echo 'Значимість цих проблем настільки очевидна, що реалізація планових завдань.';
+            }
+            ?>
           </p>
         </li>
       </ul>
@@ -150,41 +222,79 @@ get_header(); ?>
   <!-- our-works -->
   <section class="work-section">
     <div class="container">
-      <h2 class="work-section__title">Чим ми займаємося</h2>
+      <h2 class="work-section__title">
+        <?php
+        if (get_theme_mod('work_section_title')) {
+          echo esc_html(get_theme_mod('work_section_title'));
+        } else {
+          echo 'Чим ми займаємося';
+        }
+        ?>
+      </h2>
       <ul class="examples">
         <li class="examples__card">
           <div class="thumb">
-            <p class="examples__text">Десктопні Додатки</p>
+            <p class="examples__text">
+              <?php
+              if (get_theme_mod('work_card1_text')) {
+                echo esc_html(get_theme_mod('work_card1_text'));
+              } else {
+                echo 'Десктопні Додатки';
+              }
+              ?>
+            </p>
             <picture>
-              <source
-                srcset="<?php echo get_template_directory_uri(); ?>/images/box1.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/box1@x2.jpg 2x"
+              <?php
+              $card1_image = get_theme_mod('work_card1_image') ? get_theme_mod('work_card1_image') : get_template_directory_uri() . '/images/box1.jpg';
+              $card1_image_2x = get_theme_mod('work_card1_image_2x') ? get_theme_mod('work_card1_image_2x') : get_template_directory_uri() . '/images/box1@x2.jpg';
+              ?>
+              <source srcset="<?php echo esc_url($card1_image); ?> 1x, <?php echo esc_url($card1_image_2x); ?> 2x"
                 sizes="370px" type="image/jpeg" />
-              <img class="examples__image" src="<?php echo get_template_directory_uri(); ?>/images/box1.jpg"
-                alt="Десктоп" width="370px" />
+              <img class="examples__image" src="<?php echo esc_url($card1_image); ?>" alt="Десктоп" width="370px" />
             </picture>
           </div>
         </li>
         <li class="examples__card">
           <div class="thumb">
-            <p class="examples__text">Мобільні додатки</p>
+            <p class="examples__text">
+              <?php
+              if (get_theme_mod('work_card2_text')) {
+                echo esc_html(get_theme_mod('work_card2_text'));
+              } else {
+                echo 'Мобільні додатки';
+              }
+              ?>
+            </p>
             <picture>
-              <source
-                srcset="<?php echo get_template_directory_uri(); ?>/images/box2.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/box2@x2.jpg 2x"
+              <?php
+              $card2_image = get_theme_mod('work_card2_image') ? get_theme_mod('work_card2_image') : get_template_directory_uri() . '/images/box2.jpg';
+              $card2_image_2x = get_theme_mod('work_card2_image_2x') ? get_theme_mod('work_card2_image_2x') : get_template_directory_uri() . '/images/box2@x2.jpg';
+              ?>
+              <source srcset="<?php echo esc_url($card2_image); ?> 1x, <?php echo esc_url($card2_image_2x); ?> 2x"
                 sizes="370px" type="image/jpeg" />
-              <img class="examples__image" src="<?php echo get_template_directory_uri(); ?>/images/box2.jpg"
-                alt="Телефони" width="370px" />
+              <img class="examples__image" src="<?php echo esc_url($card2_image); ?>" alt="Телефони" width="370px" />
             </picture>
           </div>
         </li>
         <li class="examples__card">
           <div class="thumb">
-            <p class="examples__text">Дизайнерські рішення</p>
+            <p class="examples__text">
+              <?php
+              if (get_theme_mod('work_card3_text')) {
+                echo esc_html(get_theme_mod('work_card3_text'));
+              } else {
+                echo 'Дизайнерські рішення';
+              }
+              ?>
+            </p>
             <picture>
-              <source
-                srcset="<?php echo get_template_directory_uri(); ?>/images/box3.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/box3@x2.jpg 2x"
+              <?php
+              $card3_image = get_theme_mod('work_card3_image') ? get_theme_mod('work_card3_image') : get_template_directory_uri() . '/images/box3.jpg';
+              $card3_image_2x = get_theme_mod('work_card3_image_2x') ? get_theme_mod('work_card3_image_2x') : get_template_directory_uri() . '/images/box3@x2.jpg';
+              ?>
+              <source srcset="<?php echo esc_url($card3_image); ?> 1x, <?php echo esc_url($card3_image_2x); ?> 2x"
                 sizes="370px" type="image/jpeg" />
-              <img class="examples__image" src="<?php echo get_template_directory_uri(); ?>/images/box3.jpg"
-                alt="Планшети" width="370px" />
+              <img class="examples__image" src="<?php echo esc_url($card3_image); ?>" alt="Планшети" width="370px" />
             </picture>
           </div>
         </li>
@@ -194,49 +304,72 @@ get_header(); ?>
   <!-- our-command -->
   <section class="section command">
     <div class="container">
-      <h2 class="command__title">Наша команда</h2>
+      <h2 class="command__title">
+        <?php
+        if (get_theme_mod('team_section_title')) {
+          echo esc_html(get_theme_mod('team_section_title'));
+        } else {
+          echo 'Наша команда';
+        }
+        ?>
+      </h2>
       <ul class="members">
         <li class="members__item">
           <picture>
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face1480@x1.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face1480@x2.jpg 2x"
+            <?php
+            $face1_480 = get_theme_mod('team_member_photo_480_1') ? get_theme_mod('team_member_photo_480_1') : get_template_directory_uri() . '/images/face1480@x1.jpg';
+            $face1_480_2x = get_theme_mod('team_member_photo_480_2x_1') ? get_theme_mod('team_member_photo_480_2x_1') : get_template_directory_uri() . '/images/face1480@x2.jpg';
+            $face1_768 = get_theme_mod('team_member_photo_768_1') ? get_theme_mod('team_member_photo_768_1') : get_template_directory_uri() . '/images/face1768@x1.jpg';
+            $face1_768_2x = get_theme_mod('team_member_photo_768_2x_1') ? get_theme_mod('team_member_photo_768_2x_1') : get_template_directory_uri() . '/images/face1768@x2.jpg';
+            $face1 = get_theme_mod('team_member_photo_1') ? get_theme_mod('team_member_photo_1') : get_template_directory_uri() . '/images/face1.jpg';
+            $face1_2x = get_theme_mod('team_member_photo_2x_1') ? get_theme_mod('team_member_photo_2x_1') : get_template_directory_uri() . '/images/face1@x2.jpg';
+
+            $member1_position = get_theme_mod('team_member_position_1') ? get_theme_mod('team_member_position_1') : 'Product Designer';
+            ?>
+            <source srcset="<?php echo esc_url($face1_480); ?> 1x, <?php echo esc_url($face1_480_2x); ?> 2x"
               media="(max-width: 767px)" type="image/jpeg" />
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face1768@x1.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face1768@x2.jpg 2x"
+            <source srcset="<?php echo esc_url($face1_768); ?> 1x, <?php echo esc_url($face1_768_2x); ?> 2x"
               media="(min-width: 768px)" type="image/jpeg" />
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face1.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face1@x2.jpg 2x"
+            <source srcset="<?php echo esc_url($face1); ?> 1x, <?php echo esc_url($face1_2x); ?> 2x"
               media="(min-width: 1200px)" type="image/jpeg" />
-            <img class="members__image" src="<?php echo get_template_directory_uri(); ?>/images/face1.jpg"
-              alt="Product Designer" width="270px" />
+            <img class="members__image" src="<?php echo esc_url($face1); ?>"
+              alt="<?php echo esc_attr($member1_position); ?>" width="270px" />
           </picture>
           <div class="description">
-            <h3 class="description__subtitle">Ігор Дем'яненко</h3>
-            <p class="description__text">Product Designer</p>
+            <h3 class="description__subtitle">
+              <?php echo get_theme_mod('team_member_name_1') ? esc_html(get_theme_mod('team_member_name_1')) : 'Ігор Дем\'яненко'; ?>
+            </h3>
+            <p class="description__text">
+              <?php echo esc_html($member1_position); ?>
+            </p>
             <ul class="social-list">
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_instagram_1') ? esc_url(get_theme_mod('team_member_instagram_1')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-instagram"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_twitter_1') ? esc_url(get_theme_mod('team_member_twitter_1')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-twitter"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_facebook_1') ? esc_url(get_theme_mod('team_member_facebook_1')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-facebook"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_linkedin_1') ? esc_url(get_theme_mod('team_member_linkedin_1')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-linkedin"></use>
                   </svg>
@@ -247,45 +380,60 @@ get_header(); ?>
         </li>
         <li class="members__item">
           <picture>
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face2480@x1.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face2480@x2.jpg 2x"
+            <?php
+            $face2_480 = get_theme_mod('team_member_photo_480_2') ? get_theme_mod('team_member_photo_480_2') : get_template_directory_uri() . '/images/face2480@x1.jpg';
+            $face2_480_2x = get_theme_mod('team_member_photo_480_2x_2') ? get_theme_mod('team_member_photo_480_2x_2') : get_template_directory_uri() . '/images/face2480@x2.jpg';
+            $face2_768 = get_theme_mod('team_member_photo_768_2') ? get_theme_mod('team_member_photo_768_2') : get_template_directory_uri() . '/images/face2768@x1.jpg';
+            $face2_768_2x = get_theme_mod('team_member_photo_768_2x_2') ? get_theme_mod('team_member_photo_768_2x_2') : get_template_directory_uri() . '/images/face2768@x2.jpg';
+            $face2 = get_theme_mod('team_member_photo_2') ? get_theme_mod('team_member_photo_2') : get_template_directory_uri() . '/images/face2.jpg';
+            $face2_2x = get_theme_mod('team_member_photo_2x_2') ? get_theme_mod('team_member_photo_2x_2') : get_template_directory_uri() . '/images/face2@x2.jpg';
+
+            $member2_position = get_theme_mod('team_member_position_2') ? get_theme_mod('team_member_position_2') : 'Frontend Developer';
+            ?>
+            <source srcset="<?php echo esc_url($face2_480); ?> 1x, <?php echo esc_url($face2_480_2x); ?> 2x"
               media="(max-width: 767px)" type="image/jpeg" />
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face2768@x1.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face2768@x2.jpg 2x"
+            <source srcset="<?php echo esc_url($face2_768); ?> 1x, <?php echo esc_url($face2_768_2x); ?> 2x"
               media="(min-width: 768px)" type="image/jpeg" />
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face2.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face2@x2.jpg 2x"
+            <source srcset="<?php echo esc_url($face2); ?> 1x, <?php echo esc_url($face2_2x); ?> 2x"
               media="(min-width: 1200px)" type="image/jpeg" />
-            <img class="members__image" src="<?php echo get_template_directory_uri(); ?>/images/face2.jpg"
-              alt="Frontend Developer" width="270px" />
+            <img class="members__image" src="<?php echo esc_url($face2); ?>"
+              alt="<?php echo esc_attr($member2_position); ?>" width="270px" />
           </picture>
           <div class="description">
-            <h3 class="description__subtitle">Ольга Рєпіна</h3>
-            <p class="description__text">Frontend Developer</p>
+            <h3 class="description__subtitle">
+              <?php echo get_theme_mod('team_member_name_2') ? esc_html(get_theme_mod('team_member_name_2')) : 'Ольга Рєпіна'; ?>
+            </h3>
+            <p class="description__text">
+              <?php echo esc_html($member2_position); ?>
+            </p>
             <ul class="social-list">
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_instagram_2') ? esc_url(get_theme_mod('team_member_instagram_2')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-instagram"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_twitter_2') ? esc_url(get_theme_mod('team_member_twitter_2')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-twitter"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_facebook_2') ? esc_url(get_theme_mod('team_member_facebook_2')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-facebook"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_linkedin_2') ? esc_url(get_theme_mod('team_member_linkedin_2')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-linkedin"></use>
                   </svg>
@@ -296,45 +444,60 @@ get_header(); ?>
         </li>
         <li class="members__item">
           <picture>
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face3480@x1.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face3480@x2.jpg 2x"
+            <?php
+            $face3_480 = get_theme_mod('team_member_photo_480_3') ? get_theme_mod('team_member_photo_480_3') : get_template_directory_uri() . '/images/face3480@x1.jpg';
+            $face3_480_2x = get_theme_mod('team_member_photo_480_2x_3') ? get_theme_mod('team_member_photo_480_2x_3') : get_template_directory_uri() . '/images/face3480@x2.jpg';
+            $face3_768 = get_theme_mod('team_member_photo_768_3') ? get_theme_mod('team_member_photo_768_3') : get_template_directory_uri() . '/images/face3768@x1.jpg';
+            $face3_768_2x = get_theme_mod('team_member_photo_768_2x_3') ? get_theme_mod('team_member_photo_768_2x_3') : get_template_directory_uri() . '/images/face3768@x2.jpg';
+            $face3 = get_theme_mod('team_member_photo_3') ? get_theme_mod('team_member_photo_3') : get_template_directory_uri() . '/images/face3.jpg';
+            $face3_2x = get_theme_mod('team_member_photo_2x_3') ? get_theme_mod('team_member_photo_2x_3') : get_template_directory_uri() . '/images/face3@x2.jpg';
+
+            $member3_position = get_theme_mod('team_member_position_3') ? get_theme_mod('team_member_position_3') : 'Marketing';
+            ?>
+            <source srcset="<?php echo esc_url($face3_480); ?> 1x, <?php echo esc_url($face3_480_2x); ?> 2x"
               media="(max-width: 767px)" type="image/jpeg" />
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face3768@x1.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face3768@x2.jpg 2x"
+            <source srcset="<?php echo esc_url($face3_768); ?> 1x, <?php echo esc_url($face3_768_2x); ?> 2x"
               media="(min-width: 768px)" type="image/jpeg" />
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face3.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face3@x2.jpg 2x"
+            <source srcset="<?php echo esc_url($face3); ?> 1x, <?php echo esc_url($face3_2x); ?> 2x"
               media="(min-width: 1200px)" type="image/jpeg" />
-            <img class="members__image" src="<?php echo get_template_directory_uri(); ?>/images/face3.jpg"
-              alt="Marketing" width="270px" />
+            <img class="members__image" src="<?php echo esc_url($face3); ?>"
+              alt="<?php echo esc_attr($member3_position); ?>" width="270px" />
           </picture>
           <div class="description">
-            <h3 class="description__subtitle">Микола Тарасов</h3>
-            <p class="description__text">Marketing</p>
+            <h3 class="description__subtitle">
+              <?php echo get_theme_mod('team_member_name_3') ? esc_html(get_theme_mod('team_member_name_3')) : 'Микола Тарасов'; ?>
+            </h3>
+            <p class="description__text">
+              <?php echo esc_html($member3_position); ?>
+            </p>
             <ul class="social-list">
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_instagram_3') ? esc_url(get_theme_mod('team_member_instagram_3')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-instagram"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_twitter_3') ? esc_url(get_theme_mod('team_member_twitter_3')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-twitter"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_facebook_3') ? esc_url(get_theme_mod('team_member_facebook_3')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-facebook"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_linkedin_3') ? esc_url(get_theme_mod('team_member_linkedin_3')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-linkedin"></use>
                   </svg>
@@ -345,45 +508,60 @@ get_header(); ?>
         </li>
         <li class="members__item">
           <picture>
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face4480@x1.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face4480@x2.jpg 2x"
+            <?php
+            $face4_480 = get_theme_mod('team_member_photo_480_4') ? get_theme_mod('team_member_photo_480_4') : get_template_directory_uri() . '/images/face4480@x1.jpg';
+            $face4_480_2x = get_theme_mod('team_member_photo_480_2x_4') ? get_theme_mod('team_member_photo_480_2x_4') : get_template_directory_uri() . '/images/face4480@x2.jpg';
+            $face4_768 = get_theme_mod('team_member_photo_768_4') ? get_theme_mod('team_member_photo_768_4') : get_template_directory_uri() . '/images/face4768@x1.jpg';
+            $face4_768_2x = get_theme_mod('team_member_photo_768_2x_4') ? get_theme_mod('team_member_photo_768_2x_4') : get_template_directory_uri() . '/images/face4768@x2.jpg';
+            $face4 = get_theme_mod('team_member_photo_4') ? get_theme_mod('team_member_photo_4') : get_template_directory_uri() . '/images/face4.jpg';
+            $face4_2x = get_theme_mod('team_member_photo_2x_4') ? get_theme_mod('team_member_photo_2x_4') : get_template_directory_uri() . '/images/face4@x2.jpg';
+
+            $member4_position = get_theme_mod('team_member_position_4') ? get_theme_mod('team_member_position_4') : 'UI Designer';
+            ?>
+            <source srcset="<?php echo esc_url($face4_480); ?> 1x, <?php echo esc_url($face4_480_2x); ?> 2x"
               media="(max-width: 767px)" type="image/jpeg" />
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face4768@x1.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face4768@x2.jpg 2x"
+            <source srcset="<?php echo esc_url($face4_768); ?> 1x, <?php echo esc_url($face4_768_2x); ?> 2x"
               media="(min-width: 768px)" type="image/jpeg" />
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/images/face4.jpg 1x, <?php echo get_template_directory_uri(); ?>/images/face4@x2.jpg 2x"
+            <source srcset="<?php echo esc_url($face4); ?> 1x, <?php echo esc_url($face4_2x); ?> 2x"
               media="(min-width: 1200px)" type="image/jpeg" />
-            <img class="members__image" src="<?php echo get_template_directory_uri(); ?>/images/face4.jpg"
-              alt="UI Designer" width="270px" />
+            <img class="members__image" src="<?php echo esc_url($face4); ?>"
+              alt="<?php echo esc_attr($member4_position); ?>" width="270px" />
           </picture>
           <div class="description">
-            <h3 class="description__subtitle">Михайло Єрмаков</h3>
-            <p class="description__text">UI Designer</p>
+            <h3 class="description__subtitle">
+              <?php echo get_theme_mod('team_member_name_4') ? esc_html(get_theme_mod('team_member_name_4')) : 'Михайло Єрмаков'; ?>
+            </h3>
+            <p class="description__text">
+              <?php echo esc_html($member4_position); ?>
+            </p>
             <ul class="social-list">
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_instagram_4') ? esc_url(get_theme_mod('team_member_instagram_4')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-instagram"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_twitter_4') ? esc_url(get_theme_mod('team_member_twitter_4')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-twitter"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_facebook_4') ? esc_url(get_theme_mod('team_member_facebook_4')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-facebook"></use>
                   </svg>
                 </a>
               </li>
               <li>
-                <a class="social-list__link" href="">
+                <a class="social-list__link"
+                  href="<?php echo get_theme_mod('team_member_linkedin_4') ? esc_url(get_theme_mod('team_member_linkedin_4')) : '#'; ?>">
                   <svg width="20" height="20">
                     <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-linkedin"></use>
                   </svg>

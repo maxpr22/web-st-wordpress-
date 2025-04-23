@@ -1,0 +1,28 @@
+.single-post__content,
+.single-post__content p,
+.single-post__content h1,
+.single-post__content h2,
+.single-post__content h3,
+.single-post__content h4,
+.single-post__content h5,
+.single-post__content h6,
+.single-post__content ul,
+.single-post__content ol,
+.single-post__content li,
+.single-post__content blockquote,
+.single-post__title,
+.single-post__meta,
+.related-posts__title {
+    color: #000000;
+}
+
+/* Прибирання підкреслення з кнопок фільтрів */
+.filter__button {
+    text-decoration: none;
+}
+
+
+.breadcrumbs *{
+color: #000000;
+text-decoration: none;
+}

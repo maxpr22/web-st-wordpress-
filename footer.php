@@ -1,7 +1,13 @@
 <footer class="footer">
   <div class="container footer__container">
     <div class="footer-address">
-      <a href="./index.html" class="logo--inverse"><span class="logo__accent">Web</span>Studio</a>
+    <?php if (has_custom_logo()): ?>
+          <div class="logo">
+            <?php the_custom_logo(); ?>
+          </div>
+        <?php else: ?>
+          <a href="./index.html" class="logo--inverse"><span class="logo__accent">Web</span>Studio</a>
+        <?php endif; ?>
       <?php
 $address = get_theme_mod('contact_address', 'м. Київ, пр-т Лесі Українки, 26');
 $email = get_theme_mod('contact_email', 'info@devstudio.com');

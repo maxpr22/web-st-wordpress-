@@ -574,55 +574,7 @@ get_header(); ?>
     </div>
   </section>
   <!-- clients -->
-  <section class="section clients">
-    <div class="container">
-      <h2 class="clients__title">Постійні клієнти</h2>
-      <ul class="clients-list">
-        <li class="clients-list__item">
-          <a class="clients-list__logo" href="">
-            <svg width="106" height="60">
-              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-client1"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="clients-list__item">
-          <a class="clients-list__logo" href="">
-            <svg width="106" height="60">
-              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-client2"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="clients-list__item">
-          <a class="clients-list__logo" href="">
-            <svg width="106" height="60">
-              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-client3"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="clients-list__item">
-          <a class="clients-list__logo" href="">
-            <svg width="106" height="60">
-              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-client4"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="clients-list__item">
-          <a class="clients-list__logo" href="">
-            <svg width="106" height="60">
-              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-client5"></use>
-            </svg>
-          </a>
-        </li>
-        <li class="clients-list__item">
-          <a class="clients-list__logo" href="">
-            <svg width="106" height="60">
-              <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-client6"></use>
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
+  <?php get_clients_section(); ?>
   <!-- modal -->
   <div class="backdrop is-hidden" data-modal>
     <div class="modal">
@@ -675,5 +627,4 @@ get_header(); ?>
     </div>
   </div>
 </main>
-<!-- footer -->
 <?php get_footer(); ?>

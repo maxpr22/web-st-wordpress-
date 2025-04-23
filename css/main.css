@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Roboto";
   font-weight: 100;
@@ -1533,6 +1534,7 @@ p {
   }
 }
 .filter__button {
+  text-decoration: none;
   color: var(--title-text-color);
   background-color: var(--our-command-background-button-portfolio-color);
   font-family: inherit;
@@ -1551,6 +1553,7 @@ p {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter__button--current {
+  text-decoration: none;
   color: var(--primary-bg-color);
   background-color: var(--accent-color);
   border: none;
@@ -1558,6 +1561,7 @@ p {
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 3px 1px 0 rgba(0, 0, 0, 0.1);
 }
 .filter__button:hover, .filter__button:focus {
+  text-decoration: none;
   background-color: var(--accent-color);
   color: var(--primary-bg-color);
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 3px 1px 0 rgba(0, 0, 0, 0.1);
@@ -2166,4 +2170,69 @@ p {
   .mobile-social__link {
     font-size: 18px;
   }
+}
+
+.single-post__content,
+.single-post__content p,
+.single-post__content h1,
+.single-post__content h2,
+.single-post__content h3,
+.single-post__content h4,
+.single-post__content h5,
+.single-post__content h6,
+.single-post__content ul,
+.single-post__content ol,
+.single-post__content li,
+.single-post__content blockquote,
+.single-post__title,
+.single-post__meta,
+.related-posts__title {
+  color: #000000;
+}
+
+/* Прибирання підкреслення з кнопок фільтрів */
+.filter__button {
+  text-decoration: none;
+}
+
+.breadcrumbs * {
+  color: #000000;
+  text-decoration: none;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 40px;
+  gap: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.pagination a,
+.pagination span {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.pagination a:hover {
+  border-color: rgba(33, 150, 243, 0.9019607843);
+  color: rgba(33, 150, 243, 0.9019607843);
+}
+
+.pagination .current {
+  background-color: rgba(33, 150, 243, 0.9019607843);
+  color: #fff;
+  border-color: rgba(33, 150, 243, 0.9019607843);
 }/*# sourceMappingURL=main.css.map */

@@ -212,7 +212,6 @@ function theme_customize_register($wp_customize)
   }
 
 }
- // Реєстрація типу запису "Послуги"
  function register_services_post_type() {
   $labels = array(
       'name'               => 'Послуги',
@@ -248,7 +247,6 @@ function theme_customize_register($wp_customize)
 }
 add_action('init', 'register_services_post_type');
 
-// Додаємо метабокс для тексту картки
 function services_meta_boxes() {
   add_meta_box(
       'service_card_text',
@@ -261,7 +259,6 @@ function services_meta_boxes() {
 }
 add_action('add_meta_boxes', 'services_meta_boxes');
 
-// Callback функція для метабоксу тексту
 function service_card_text_callback($post) {
   wp_nonce_field(basename(__FILE__), 'service_text_nonce');
   $service_text = get_post_meta($post->ID, '_service_text', true);
@@ -272,31 +269,24 @@ function service_card_text_callback($post) {
   <?php
 }
 
-// Зберігаємо метадані
 function save_service_meta($post_id) {
-  // Перевіряємо nonce для текстового поля
   if (!isset($_POST['service_text_nonce']) || !wp_verify_nonce($_POST['service_text_nonce'], basename(__FILE__))) {
       return $post_id;
   }
   
-  // Перевіряємо чи не автозбереження
   if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
       return $post_id;
   }
   
-  // Перевіряємо права користувача
   if ('services' == $_POST['post_type'] && !current_user_can('edit_post', $post_id)) {
       return $post_id;
   }
   
-  // Зберігаємо текст картки
   if (isset($_POST['service_text'])) {
       update_post_meta($post_id, '_service_text', sanitize_text_field($_POST['service_text']));
   }
 }
 
-
-// Реєстрація типу запису "Команда"
 function register_team_post_type() {
   $labels = array(
       'name'               => 'Команда',
@@ -332,7 +322,6 @@ function register_team_post_type() {
 }
 add_action('init', 'register_team_post_type');
 
-// Додаємо метабокси для члена команди
 function team_meta_boxes() {
   add_meta_box(
       'team_member_position',
@@ -354,7 +343,6 @@ function team_meta_boxes() {
 }
 add_action('add_meta_boxes', 'team_meta_boxes');
 
-// Callback функція для метабоксу посади
 function team_member_position_callback($post) {
   wp_nonce_field(basename(__FILE__), 'team_position_nonce');
   $position = get_post_meta($post->ID, '_team_position', true);
@@ -365,7 +353,6 @@ function team_member_position_callback($post) {
   <?php
 }
 
-// Callback функція для метабоксу соціальних мереж
 function team_member_social_callback($post) {
   wp_nonce_field(basename(__FILE__), 'team_social_nonce');
   $instagram = get_post_meta($post->ID, '_team_instagram', true);
@@ -392,34 +379,27 @@ function team_member_social_callback($post) {
   <?php
 }
 
-// Зберігаємо метадані члена команди
 function save_team_meta($post_id) {
-  // Перевіряємо nonce для поля посади
   if (!isset($_POST['team_position_nonce']) || !wp_verify_nonce($_POST['team_position_nonce'], basename(__FILE__))) {
       return $post_id;
   }
   
-  // Перевіряємо nonce для поля соціальних мереж
   if (!isset($_POST['team_social_nonce']) || !wp_verify_nonce($_POST['team_social_nonce'], basename(__FILE__))) {
       return $post_id;
   }
   
-  // Перевіряємо чи не автозбереження
   if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
       return $post_id;
   }
   
-  // Перевіряємо права користувача
   if ('team' == $_POST['post_type'] && !current_user_can('edit_post', $post_id)) {
       return $post_id;
   }
   
-  // Зберігаємо посаду
   if (isset($_POST['team_position'])) {
       update_post_meta($post_id, '_team_position', sanitize_text_field($_POST['team_position']));
   }
   
-  // Зберігаємо соціальні мережі
   if (isset($_POST['team_instagram'])) {
       update_post_meta($post_id, '_team_instagram', esc_url_raw($_POST['team_instagram']));
   }
@@ -436,6 +416,22 @@ function save_team_meta($post_id) {
       update_post_meta($post_id, '_team_linkedin', esc_url_raw($_POST['team_linkedin']));
   }
 }
+
+
+
+function custom_wpcf7_form_elements($html) {
+  $html = preg_replace('/<p>(\[field_svg (.*?)\])<\/p>/', '$1', $html);
+  
+  $html = preg_replace_callback('/\[field_svg (.*?)\]/', function($matches) {
+      $icon = $matches[1];
+      return '<use href="' . get_template_directory_uri() . '/images/icons.svg#' . $icon . '"></use>';
+  }, $html);
+  
+  return $html;
+}
+
+add_filter('wpcf7_autop_or_not', '__return_false');
+add_filter('wpcf7_form_elements', 'custom_wpcf7_form_elements');
 add_action('save_post_team', 'save_team_meta');
 add_action('save_post_services', 'save_service_meta');
 

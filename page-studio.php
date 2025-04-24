@@ -233,47 +233,8 @@ get_header(); ?>
           <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-close-black"></use>
         </svg>
       </button>
-      <form class="form contact-form">
-        <p class="form__title">Залиште свої дані, ми вам передзвонимо</p>
-        <div class="form__field">
-          <label for="text">Ім'я</label>
-          <svg class="form__icon" width="18" height="18">
-            <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-person-black"></use>
-          </svg>
-          <input type="text" name="text" id="text" autofocus />
-        </div>
-        <div class="form__field">
-          <label for="tel">Телефон </label>
-          <svg class="form__icon" width="18" height="18">
-            <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-phone-black"></use>
-          </svg>
-          <input type="tel" name="tel" id="tel" />
-        </div>
-        <div class="form__field">
-          <label for="email">Пошта </label>
-          <svg class="form__icon" width="18" height="18">
-            <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-email-black"></use>
-          </svg>
-          <input type="email" name="email" id="email" />
-        </div>
-        <div class="form-text">
-          <label class="form-text__title" for="comments">Коментар </label>
-          <textarea class="form-text__comment" name="comments" id="comments" placeholder="Введіть текст"></textarea>
-        </div>
-        <div class="policy">
-          <label class="policy__label">
-            <input class="checkbox" type="checkbox" name="policy" value="policy" />
-            <span class="policy__icon">
-              <svg class="icon-check" width="16" height="15">
-                <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-icon-check"></use>
-              </svg>
-            </span>
-            Погоджуюся з розсилкою та приймаю
-            <a class="contract" href="">Умови договору</a>
-          </label>
-        </div>
-        <button type="submit" class="form__button">Відправити</button>
-      </form>
+      <p class="form__title">Залиште свої дані, ми вам передзвонимо</p>
+      <?php echo do_shortcode('[contact-form-7 id="fac75bf" title="Віджет форми"]')?>
     </div>
   </div>
 </main>

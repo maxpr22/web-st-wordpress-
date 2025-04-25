@@ -15,6 +15,18 @@ $phone = get_theme_mod('contact_phone', '+380961111111');
 $map_link = get_theme_mod('contact_map_link', 'https://goo.gl/maps/CPtrU1FHBa2aNyZL9');
 ?>
 
+<?php
+$default_address = 'м. Київ, пр-т Лесі Українки, 26';
+$default_email = 'info@devstudio.com';
+$default_phone = '+38 096 111 11 11';
+$default_map_link = '#';
+
+$address = !empty($address) ? $address : $default_address;
+$email = !empty($email) ? $email : $default_email;
+$phone = !empty($phone) ? $phone : $default_phone;
+$map_link = !empty($map_link) ? $map_link : $default_map_link;
+?>
+
 <address>
   <ul class="location">
     <li class="location__item">

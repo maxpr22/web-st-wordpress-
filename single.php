@@ -5,6 +5,66 @@
 get_header(); ?>
 
 <main>
+  <!--Mobile-menu -->
+  <div class="menu-container js-menu-container" id="mobile-menu">
+    <button class="menu-toggle js-close-menu">
+      <svg width="19px" height="19px">
+        <use href="<?php echo get_template_directory_uri(); ?>/images/icons.svg#icon-close_24px"></use>
+      </svg>
+    </button>
+    <nav class="mobile-nav">
+      <ul class="mobile-nav__list">
+        <?php
+        wp_nav_menu(array(
+          'theme_location' => 'header-menu',
+          'container' => false,
+          'menu_class' => 'mobile-nav__list',
+          'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+          'fallback_cb' => false,
+          'walker' => new Mobile_Nav_Walker()
+        ));
+        ?>
+      </ul>
+    </nav>
+    <address class="mobile-contact">
+      <ul class="mobile-contact__list">
+        <li class="mobile-contact__item">
+          <a class="mobile-contact__phone" href="tel:<?php
+          $phone = get_theme_mod('contact_phone');
+          if (empty($phone)) {
+            $phone = '+380961111111';
+          }
+          echo esc_attr($phone);
+          ?>">
+            <?php
+            echo esc_html($phone);
+            ?>
+          </a>
+        </li>
+        <li class="mobile-contact__item">
+          <a class="mobile-contact__mail" href="mailto:<?php
+          $email = get_theme_mod('contact_email');
+          if (empty($email)) {
+            $email = 'info@devstudio.com';
+          }
+          echo esc_attr($email);
+          ?>">
+            <?php
+            echo esc_html($email);
+            ?>
+          </a>
+        </li>
+      </ul>
+    </address>
+    <ul class="mobile-social">
+      <li class="mobile-social__item">
+        <a class="mobile-social__link" href=""> Instagram</a>
+      </li>
+      <li class="mobile-social__item"><a class="mobile-social__link" href=""> Twitter</a></li>
+      <li class="mobile-social__item"><a class="mobile-social__link" href=""> Facebook</a></li>
+      <li class="mobile-social__item"><a class="mobile-social__link" href=""> Linkedin</a></li>
+    </ul>
+  </div>
   <section class="section">
     <div class="container">
       <div class="single-post">
